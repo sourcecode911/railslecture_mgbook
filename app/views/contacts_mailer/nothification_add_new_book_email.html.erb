@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Hallo , <%= @contact.vorname %> <%= @contact.nachname %></h1>
+<p>
+  Dies ist ein automatische Benachichtigung von ihrem Kontakt <%= @current_user.name %>
+  auf https://www.mg-book.de.<br/>
+</p>
+<p>
+  Folgendes Buch wurde neu hinzugefügt <%= @book.title %>
+</p>
+<p>Sagen Sie ihm bescheid, das Sie das neue Buch ausleihen möchten</p>
+</body>
+</html>

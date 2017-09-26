@@ -1,0 +1,32 @@
+<form class="form-horizontal">
+<div class="form-group">
+    <label class="control-label col-md-2" for="isbn">ISBN:</label>
+    <div class="col-md-10">
+      <div class="form-control-static"><%= @book.isbn %></div>
+    </div>
+  <label class="control-label col-md-2" for="titel">Titel:</label>
+  <div class="col-md-10">
+    <p class="form-control-static"><%= @book.title %></p>
+  </div>
+      <label class="control-label col-md-2" for="seiten">Seiten:</label>
+      <div class="col-md-10">
+        <p class="form-control-static"><%= @book.pages %></p>
+      </div>
+        <label class="control-label col-md-2" for="titel">Autoren:</label>
+        <div class="col-md-10">
+          <p class="form-control-static"><%= @book.autoren %></p>
+        </div>
+          <label class="control-label col-md-2" for="veröffentlicht">Veröffentlicht:</label>
+          <div class="col-md-10">
+            <p class="form-control-static"><%= @book.public_date %></p>
+          </div>
+            <label class="control-label col-md-2" for="beschreibung">Beschreibung:</label>
+            <div class="col-md-10">
+              <p class="form-control-static"><%= @book.description %></p>
+            </div>
+          </div>
+  <%= image_tag @book.cover.image.url.sub!('s3','s3-eu-west-1'), size:'300x300' unless @book.cover.image.url.sub!('s3','s3-eu-west-1').nil? %>
+
+  </div>
+  </form>
+<%= link_to 'Bearbeiten', edit_book_path(@book) %>

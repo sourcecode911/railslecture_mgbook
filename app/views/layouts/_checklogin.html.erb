@@ -1,0 +1,11 @@
+ <% if user_signed_in? %>
+      <%= render 'layouts/menue' %>
+              <%= render 'layouts/messages' %>
+<% else %>
+           <body class="login_body">
+        <div class="login_container">
+              <%= render 'layouts/messages' %>
+        </div>
+        <div class="main_back_img"></div>
+    </body>
+<% end %>
