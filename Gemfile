@@ -45,11 +45,11 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 #gem 'simple_form_bootstrap3'
 
-gem 'letter_opener_web'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'letter_opener_web'
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
