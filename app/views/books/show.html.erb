@@ -24,7 +24,8 @@
             <div class="col-md-10">
               <p class="form-control-static"><%= @book.description %></p>
             </div>
-          </div>
+  <div class="col-md-12">
   <%= image_tag @book.cover.image.url.sub!('s3','s3-eu-west-1'), class: "img-rounded" , size:'300x300' unless @book.cover.image.url.sub!('s3','s3-eu-west-1').nil? %>
-  </div>
+</div>
+</div>
   </form>

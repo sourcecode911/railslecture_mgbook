@@ -15460,3 +15460,290 @@ excon.error.response
   puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 
 Started POST "/__better_errors/83f9fda5cb280e66/variables" for 127.0.0.1 at 2017-09-27 09:43:46 +0200
+Started GET "/" for 127.0.0.1 at 2017-09-27 10:06:10 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-27 10:06:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (936.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (4.4ms) [cache miss]
+Completed 200 OK in 1429ms (Views: 1391.4ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-27 10:06:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Vx6Xb3e07sP+r338lQTz5HytA8pOQBnc7Rn0CQR0wPZaJ5TldEygBjNHxglBV/xaFII0MueUjV0qYXG/u6ecQ==", "user"=>{"email"=>"mikegoebel1994@outlook.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Anmelden"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mikegoebel1994@outlook.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-09-27 08:06:21.165045"], ["last_sign_in_at", "2017-09-27 07:15:32.653541"], ["sign_in_count", 10], ["updated_at", "2017-09-27 08:06:21.166227"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 194ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-27 10:06:21 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_menue.html.erb (1.1ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (6.3ms) [cache miss]
+Completed 200 OK in 42ms (Views: 35.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-09-27 10:06:23 +0200
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered books/index.html.erb within layouts/application (16.6ms)
+  Rendered layouts/_menue.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.5ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (6.8ms) [cache miss]
+Completed 200 OK in 76ms (Views: 46.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-09-27 10:06:24 +0200
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mCover Load (0.3ms)[0m  [1m[34mSELECT  "covers".* FROM "covers" WHERE "covers"."book_id" = $1 LIMIT $2[0m  [["book_id", 3], ["LIMIT", 1]]
+  Rendered books/show.html.erb within layouts/application (47.2ms)
+  Rendered layouts/_menue.html.erb (1.1ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (5.8ms) [cache miss]
+Completed 200 OK in 89ms (Views: 77.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-09-27 10:06:50 +0200
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (42.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mCover Load (0.7ms)[0m  [1m[34mSELECT  "covers".* FROM "covers" WHERE "covers"."book_id" = $1 LIMIT $2[0m  [["book_id", 3], ["LIMIT", 1]]
+  Rendered books/show.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_menue.html.erb (3.5ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.7ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (11.7ms) [cache miss]
+Completed 200 OK in 113ms (Views: 62.2ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-09-27 10:07:07 +0200
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mCover Load (0.4ms)[0m  [1m[34mSELECT  "covers".* FROM "covers" WHERE "covers"."book_id" = $1 LIMIT $2[0m  [["book_id", 3], ["LIMIT", 1]]
+  Rendered books/show.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_menue.html.erb (1.0ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.6ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (5.2ms) [cache miss]
+Completed 200 OK in 56ms (Views: 49.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-09-27 10:07:18 +0200
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered books/index.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_menue.html.erb (0.6ms) [cache miss]
+  Rendered layouts/_messages.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (3.7ms) [cache miss]
+Completed 200 OK in 52ms (Views: 46.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books/3/edit" for 127.0.0.1 at 2017-09-27 10:07:19 +0200
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCover Load (0.3ms)[0m  [1m[34mSELECT  "covers".* FROM "covers" WHERE "covers"."book_id" = $1 LIMIT $2[0m  [["book_id", 3], ["LIMIT", 1]]
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (10.1ms) [cache miss]
+  Rendered books/edit.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_menue.html.erb (0.8ms) [cache miss]
+  Rendered layouts/_messages.html.erb (1.4ms) [cache miss]
+  Rendered layouts/_checklogin.html.erb (6.1ms) [cache miss]
+Completed 200 OK in 52ms (Views: 43.8ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/books/3" for 127.0.0.1 at 2017-09-27 10:07:22 +0200
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bOprADXToCDyzxGNz6QRMi1RiNFAWQCaTy+2e7IcazjLe2mXnny8/V4WWWAqqRqAJ/8VP0NXRapdgQpff1DHQQ==", "book"=>{"isbn"=>"234234", "pages"=>"3242", "title"=>"werdwdfsfsfsdf", "public_date(3i)"=>"26", "public_date(2i)"=>"9", "public_date(1i)"=>"2017", "autoren"=>"sdfsdfsdfsdfsdfs", "description"=>"sdfsdfsdfsdfsdf", "cover_attributes"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff636662608 @tempfile=#<Tempfile:/var/folders/cj/v__lld7d0r96vmck59zp0j8w0000gn/T/RackMultipart20170927-42843-1de4t5g.jpg>, @original_filename="12553.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[cover_attributes][image]\"; filename=\"12553.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"2"}}, "commit"=>"Buch erstellen", "id"=>"3"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCover Load (0.4ms)[0m  [1m[34mSELECT  "covers".* FROM "covers" WHERE "covers"."book_id" = $1 LIMIT $2[0m  [["book_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1232ms (ActiveRecord: 2.9ms)
+
+
+
+Excon::Error::Forbidden - Expected(200) <=> Actual(403 Forbidden)
+excon.error.response
+  :body          => ""
+  :cookies       => [
+  ]
+  :headers       => {
+    "Content-Type"      => "application/xml"
+    "Date"              => "Wed, 27 Sep 2017 08:07:23 GMT"
+    "Server"            => "AmazonS3"
+    "Transfer-Encoding" => "chunked"
+    "x-amz-id-2"        => "7sW83MPbmYcGb7ujYx8grtebz0uKLKfOIatofsdOEqSz5LpkYw7GTnMam0ToreRp0FX+Kyb9ZcQ="
+    "x-amz-request-id"  => "FC50F53C9F320D17"
+  }
+  :host          => "s3-eu-west-1.amazonaws.com"
+  :local_address => "192.168.1.106"
+  :local_port    => 49625
+  :path          => "/a9s-railsvorlesung/home/railsvorlesung3/covers/images/000/000/002/original/tunesien.PNG"
+  :port          => 443
+  :reason_phrase => "Forbidden"
+  :remote_ip     => "52.218.64.236"
+  :status        => 403
+  :status_line   => "HTTP/1.1 403 Forbidden\r\n"
+:
+  excon (0.58.0) lib/excon/middlewares/expects.rb:7:in `response_call'
+  excon (0.58.0) lib/excon/middlewares/response_parser.rb:9:in `response_call'
+  excon (0.58.0) lib/excon/connection.rb:389:in `response'
+  excon (0.58.0) lib/excon/connection.rb:253:in `request'
+  excon (0.58.0) lib/excon/middlewares/idempotent.rb:30:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/connection.rb:273:in `rescue in request'
+  excon (0.58.0) lib/excon/connection.rb:216:in `request'
+  excon (0.58.0) lib/excon/middlewares/idempotent.rb:30:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/connection.rb:273:in `rescue in request'
+  excon (0.58.0) lib/excon/connection.rb:216:in `request'
+  excon (0.58.0) lib/excon/middlewares/idempotent.rb:30:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/middlewares/base.rb:11:in `error_call'
+  excon (0.58.0) lib/excon/connection.rb:273:in `rescue in request'
+  excon (0.58.0) lib/excon/connection.rb:216:in `request'
+  fog-core (1.45.0) lib/fog/core/connection.rb:81:in `request'
+  fog-xml (0.1.3) lib/fog/xml/connection.rb:9:in `request'
+  fog-aws (1.4.0) lib/fog/aws/storage.rb:612:in `_request'
+  fog-aws (1.4.0) lib/fog/aws/storage.rb:607:in `request'
+  fog-aws (1.4.0) lib/fog/aws/requests/storage/head_object.rb:41:in `head_object'
+  fog-aws (1.4.0) lib/fog/aws/models/storage/files.rb:101:in `head'
+  paperclip (5.0.0) lib/paperclip/storage/fog.rb:65:in `exists?'
+  paperclip (5.0.0) lib/paperclip/attachment.rb:560:in `block in queue_all_for_delete'
+  paperclip (5.0.0) lib/paperclip/attachment.rb:559:in `map'
+  paperclip (5.0.0) lib/paperclip/attachment.rb:559:in `queue_all_for_delete'
+  paperclip (5.0.0) lib/paperclip/attachment.rb:253:in `clear'
+  paperclip (5.0.0) lib/paperclip/attachment.rb:105:in `assign'
+  paperclip (5.0.0) lib/paperclip/has_attached_file.rb:66:in `block in define_setter'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:46:in `public_send'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:39:in `each'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+  activerecord (5.1.1) lib/active_record/nested_attributes.rb:541:in `assign_to_or_mark_for_destruction'
+  activerecord (5.1.1) lib/active_record/nested_attributes.rb:405:in `assign_nested_attributes_for_one_to_one_association'
+  activerecord (5.1.1) lib/active_record/nested_attributes.rb:361:in `cover_attributes='
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:46:in `public_send'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:34:in `block in assign_nested_parameter_attributes'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:34:in `each'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:34:in `assign_nested_parameter_attributes'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:28:in `_assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+  activerecord (5.1.1) lib/active_record/persistence.rb:284:in `block in update'
+  activerecord (5.1.1) lib/active_record/transactions.rb:384:in `block in with_transaction_returning_status'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:225:in `block in transaction'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/transaction.rb:194:in `block in within_new_transaction'
+  /Users/migoebel/.rbenv/versions/2.4.0/lib/ruby/2.4.0/monitor.rb:214:in `mon_synchronize'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/transaction.rb:191:in `within_new_transaction'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:225:in `transaction'
+  activerecord (5.1.1) lib/active_record/transactions.rb:210:in `transaction'
+  activerecord (5.1.1) lib/active_record/transactions.rb:381:in `with_transaction_returning_status'
+  activerecord (5.1.1) lib/active_record/persistence.rb:283:in `update'
+  app/controllers/books_controller.rb:69:in `block in update'
+  actionpack (5.1.1) lib/action_controller/metal/mime_responds.rb:195:in `respond_to'
+  app/controllers/books_controller.rb:68:in `update'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+  warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+  warden (1.2.7) lib/warden/manager.rb:35:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/0a6f0fdad29a45d5/variables" for 127.0.0.1 at 2017-09-27 10:07:24 +0200
