@@ -45,19 +45,19 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book, notice: 'Buch wurde erfolgreich erstellt.' }
         format.json { render :show, status: :created, location: @book }
+        @contacts = Contact.where(user_id: current_user.id)
+        @contacts.each do |c|
+          @contact = c
+          ContactsMailer.nothification_add_new_book_email(@book, c,current_user).deliver
+          end
       else
         format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
-    @contacts = Contact.where(user_id: current_user.id)
-    @contacts.each do |c|
-      @contact = c
-      ContactsMailer.nothification_add_new_book_email(@book, c,current_user).deliver
     end
-  end
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
@@ -67,7 +67,7 @@ class BooksController < ApplicationController
     end
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to @book, notice: 'Buch wurde erfolgreich bearbeitet.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
@@ -84,7 +84,7 @@ class BooksController < ApplicationController
     end
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to books_url, notice: 'Buch wurde erfolgreich gelöscht.' }
       format.json { head :no_content }
     end
   end

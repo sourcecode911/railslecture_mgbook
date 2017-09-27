@@ -56,17 +56,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   #config.action_mailer.delivery_method = :smtp
 
-  #config.paperclip_defaults = {
-   #   :storage => :fog,
-    #  :fog_credentials => {
-     #     :provider              => "AWS",
-      #    :region                => 'eu-west-1',
-       #   :scheme                => 'https',
-        #  :aws_access_key_id     => 'AKIAJW62RJ6BF2USPROA',
-         # :aws_secret_access_key => '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'
-      #},
-     # :fog_directory => "a9s-railsvorlesung/home/railsvorlesung3"
-  #}
   config.paperclip_defaults = {
       :storage => :fog,
       :fog_credentials => {

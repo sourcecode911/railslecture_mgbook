@@ -12,6 +12,16 @@ module Mgbook
     config.load_defaults 5.1
     config.i18n.default_locale = :de
 
+    ActionMailer::Base.smtp_settings = {
+        :address              => 'smtp.gmail.com',
+        :domain               => 'mail.google.com',
+        :port                 => 587,
+        :user_name            => "10mgbook10@gmail.com",
+        :password             => "ADm1234567",
+        :authentication       => 'login',
+        :enable_starttls_auto => true
+    }
+
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|

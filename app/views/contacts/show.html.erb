@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Vorname:</strong>
-  <%= @contact.vorname %>
-</p>
-
-<p>
-  <strong>Nachname:</strong>
-  <%= @contact.nachname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @contact.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-md-2" for="isbn">Vorname:</label>
+    <div class="col-md-10">
+      <div class="form-control-static"><%= @contact.vorname %></div>
+    </div>
+    <label class="control-label col-md-2" for="titel">Nachname:</label>
+    <div class="col-md-10">
+      <p class="form-control-static"><%= @contact.nachname %></p>
+    </div>
+    <label class="control-label col-md-2" for="seiten">E-Mail:</label>
+    <div class="col-md-10">
+      <p class="form-control-static"><%= @contact.email %></p>
+    </div>
+  </div>
+  </div>
+</form>

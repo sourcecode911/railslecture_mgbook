@@ -85,6 +85,20 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+  config.assets.compile = true
+  config.paperclip_defaults = {
+      :storage => :fog,
+      :fog_credentials => {
+          :provider              => "AWS",
+          :region                => 'eu-west-1',
+          :scheme                => 'https',
+          :aws_access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+          :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      },
+      :fog_directory => "#{ENV['AWS_BUCKET']}/#{ENV['AWS_PATH']}",
+  }
+  config.action_mailer.default_url_options = { host: 'railslecture_mgbook.aws.ie.a9sapp.eu'}
+  config.action_mailer.delivery_method = :smtp
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

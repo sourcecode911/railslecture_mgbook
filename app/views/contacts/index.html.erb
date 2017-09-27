@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contacts</h1>
+<h1>Meine Kontakte</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Vorname</th>
       <th>Nachname</th>
       <th>Email</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,15 +18,10 @@
         <td><%= contact.vorname %></td>
         <td><%= contact.nachname %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.user_id %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Details', contact %></td>
+        <td><%= link_to 'Bearbeiten', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Löschen', contact, method: :delete, data: { confirm: 'Bist du sicher?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>

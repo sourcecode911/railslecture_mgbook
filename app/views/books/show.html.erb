@@ -25,8 +25,7 @@
               <p class="form-control-static"><%= @book.description %></p>
             </div>
           </div>
-  <%= image_tag @book.cover.image.url.sub!('s3','s3-eu-west-1'), size:'300x300' unless @book.cover.image.url.sub!('s3','s3-eu-west-1').nil? %>
-
+  <%= image_tag @book.cover.image.url.sub!('s3','s3-eu-west-1'), class: "img-rounded" , size:'300x300' unless @book.cover.image.url.sub!('s3','s3-eu-west-1').nil? %>
   </div>
   </form>
 <%= link_to 'Bearbeiten', edit_book_path(@book) %>
